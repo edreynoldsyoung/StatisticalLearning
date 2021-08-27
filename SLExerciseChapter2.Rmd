@@ -12,64 +12,6 @@ library(tidyverse)
 library(ISLR2)
 ```
 
-# 2.3 Lab: Introduction to R
-
-```{r}
-### vectors, data, matrices, subsetting
-x <- c(2,7,5)
-x
-y <- seq(from = 4,length = 3,by = 3)
-?seq
-y
-x + y
-x/y
-x^y
-x[2]
-x[2:3]
-x[-2]
-x[-c(1,2)]
-z <- matrix(seq(1,12),4,3)
-z
-z[3:4,2:3]
-z[,2:3]
-z[,1]
-z[,1,drop = FALSE]
-dim(z)
-ls()
-rm(y)
-ls()
-### Generating random data, graphics
-x <- runif(50)
-y <- rnorm(50)
-plot(x,y)
-plot(x,y,xlab = "Random Uniform",ylab = "Random Normal",pch = "*",col = "blue")
-par(mfrow <- c(2,1))
-plot(x,y)
-hist(y)
-par(mfrow <- c(1,1))
-### Reading in data
-Auto <- read.csv("Auto.csv")
-pwd()
-Auto <- read.csv("../Auto.csv")
-names(Auto)
-dim(Auto)
-class(Auto)
-summary(Auto)
-plot(Auto$cylinders,Auto$mpg)
-plot(Auto$cyl,Auto$mpg)
-attach(Auto)
-search()
-plot(cylinders,mpg)
-cylinders <- as.factor(cylinders)
-plot(cylinders,mpg,xlab = "Cylinders",ylab = "Mpg",col = "red")
-pdf(file <- "../mpg.pdf")
-plot(cylinders,mpg,xlab = "Cylinders",ylab = "Mpg",col = "red")
-dev.off()
-pairs(Auto,col = "brown")
-pairs(mpg~cylinders+acceleration+weight,Auto)
-q()
-```
-
 # 2.4  Exercises
 
 ## Conceptual
@@ -78,11 +20,11 @@ q()
 
     (a)The sample sizen is extremely large, and the number of predictors p is small.
 
-    (b)The number of predictors p is extremely large, and the number of observations n is small.
+    1.  (b)The number of predictors p is extremely large, and the number of observations n is small.
 
-    (c)The relationship between the predictors and response is highly non-linear.
+        (c)The relationship between the predictors and response is highly non-linear.
 
-    (d)The variance of the error terms, i.e.σ^2^= Var(ε), is extremely high.
+        (d)The variance of the error terms, i.e.σ^2^= Var(ε), is extremely high.
 
 2.  Explain whether each scenario is a classification or regression problem, and indicate whether we are most interested in inference or prediction. Finally, provide n and p.
 
@@ -92,9 +34,25 @@ q()
 
     (c) We are interested in predicting the % change in the USD/Euroexchange rate in relation to the weekly changes in the worldstock markets. Hence we collect weekly data for all of 2012. Foreach week we record the % change in the USD/Euro, the %change in the US market, the % change in the British market,and the % change in the German market.
 
-3.We now revisit the bias-variance decomposition.(a)Provide a sketch of typical (squared) bias, variance, training er-ror, test error, and Bayes (or irreducible) error curves, on a sin-gle plot, as we go from less flexible statistical learning methodstowards more flexible approaches. Thex-axis should representthe amount of flexibility in the method, and they-axis shouldrepresent the values for each curve. There should be five curves.Make sure to label each one.(b)Explain why each of the five curves has the shape displayed inpart (a).4.You will now think of some real-life applications for statistical learn-ing.(a)Describe three real-life applications in whichclassificationmightbe useful. Describe the response, as well as the predictors. Is thegoal of each application inference or prediction? Explain youranswer.(b)Describe three real-life applications in whichregressionmightbe useful. Describe the response, as well as the predictors. Is thegoal of each application inference or prediction? Explain youranswer.(c)Describe three real-life applications in whichcluster analysismight be useful.5.What are the advantages and disadvantages of a very flexible (versusa less flexible) approach for regression or classification? Under whatcircumstances might a more flexible approach be preferred to a lessflexible approach? When might a less flexible approach be preferred?
+3.  We now revisit the bias-variance decomposition
 
-542\. Statistical Learning6.Describe the differences between a parametric and a non-parametricstatistical learning approach. What are the advantages of a para-metric approach to regression or classification (as opposed to a non-parametric approach)? What are its disadvantages?7.The table below provides a training data set containing six observa-tions, three predictors, and one qualitative response variable.
+    (a) Provide a sketch of typical (squared) bias, variance, training error, test error, and Bayes (or irreducible) error curves, on a single plot, as we go from less flexible statistical learning methods towards more flexible approaches. The x-axis should represent the amount of flexibility in the method, and the y-axis should represent the values for each curve. There should be five curves. Make sure to label each one
+
+    (b) Explain why each of the five curves has the shape displayed inpart (a).
+
+4.  You will now think of some real-life applications for statistical learning.
+
+    (a)Describe three real-life applications in which classification might be useful. Describe the response, as well as the predictors. Is the goal of each application inference or prediction? Explain your answer.
+
+    (b) Describe three real-life applications in which regression might be useful. Describe the response, as well as the predictors. Is the goal of each application inference or prediction? Explain your answer
+
+    (c) Describe three real-life applications in which cluster analysis might be useful.
+
+5.  What are the advantages and disadvantages of a very flexible (versusa less flexible) approach for regression or classification? Under what circumstances might a more flexible approach be preferred to a less flexible approach? When might a less flexible approach be preferred?
+
+6.  Describe the differences between a parametric and a non-parametricstatistical learning approach. What are the advantages of a para-metric approach to regression or classification (as opposed to a non-parametric approach)? What are its disadvantages?
+
+7.  The table below provides a training data set containing six observa-tions, three predictors, and one qualitative response variable.
 
 | Obs | X~1~ | X~2~ | X~3~ | X~4~  |
 |-----|------|------|------|-------|
